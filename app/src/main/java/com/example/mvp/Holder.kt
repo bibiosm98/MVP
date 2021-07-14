@@ -1,8 +1,14 @@
 package com.example.mvp
 
 class Holder() {
-    var list = ArrayList<String>()
-    override fun toString(): String {
-        return super.toString() + list.toString()
+    private var list = ArrayList<String>()
+    fun addItem(newItem: String){
+        list.add(newItem)
+    }
+    fun removeItem(position: Int){
+        list.removeAt(position)
+    }
+    fun getHolderList(): ArrayList<String> {
+        return list
     }
 }

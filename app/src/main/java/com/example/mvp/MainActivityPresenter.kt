@@ -3,15 +3,15 @@ package com.example.mvp
 class MainActivityPresenter(private val view: View) {
     private val holders: Holder = Holder()
 
-    fun addString(newHolder: String?){
-        if (newHolder != null) {
-            holders.list.add(newHolder)
+    fun addString(newItem: String?){
+        newItem?.let{
+            holders.addItem(newItem)
         }
-        view.updateHolderList(holders.list)
+        view.updateHolderList(holders.getHolderList())
     }
 
     fun removeString(position: Int){
-        holders.list.removeAt(position)
-        view.updateHolderList(holders.list)
+        holders.removeItem(position)
+        view.updateHolderList(holders.getHolderList())
     }
 }
